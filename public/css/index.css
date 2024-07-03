@@ -5,8 +5,8 @@
   margin: 0;
   box-sizing: border-box;
   color: var(--zinc-300);
-  font-family: "Playwrite IT Moderna", cursive, sans-serif, monospace;
-  font-size: 16px;
+  font-family: "Poppins", cursive, sans-serif, monospace;
+  font-size: 17px;
 }
 
 :root {
@@ -196,6 +196,13 @@ section {
 .posts-ctn .card p {
   color: var(--zinc-500);
   text-align: justify;
+}
+
+.posts-ctn .card img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  margin: 10px 0;
+  border-radius: 5px;
 }
 
 .nopost-ctn {

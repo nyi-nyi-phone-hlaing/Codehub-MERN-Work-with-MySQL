@@ -25,7 +25,11 @@
     <a href="/details/<%= post.id %>">
       <div class="card">
         <h1><%= post.title %></h1>
-        <!-- <p><%= post.description %></p> -->
+        <img src="<%= post.image_url %>" alt="<%= post.title %>" />
+        <p>
+          <%= post.description.length > 30 ? post.description.substring(0 , 30)
+          : post.description %>
+        </p>
       </div>
     </a>
     <% } %>
