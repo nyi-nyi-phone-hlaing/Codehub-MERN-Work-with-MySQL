@@ -1,0 +1,19 @@
+<%- include('./includes/head.ejs') %>
+<!-- navigation bar -->
+<nav>
+  <h1>I am Post Detail Page</h1>
+</nav>
+<!-- main content section -->
+<section>
+  <div class="detail-ctn">
+    <header>
+      <a href="/" class="main-btn">Back to Home</a>
+      <h1><%= post.title %></h1>
+    </header>
+    <div class="content-ctn">
+      <img src="<%= post.image_url %>" alt="<%= post.title %>" />
+      <p><%= post.description %></p>
+    </div>
+  </div>
+</section>
+<%- include('./includes/foot.ejs') %>

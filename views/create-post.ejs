@@ -1,0 +1,30 @@
+<%- include('./includes/head.ejs') %>
+<!-- navigation bar -->
+<nav>
+  <h1>Add a new post here</h1>
+</nav>
+<!-- main content section -->
+<section class="addpost-section">
+  <div class="form-ctn">
+    <header>
+      <h1>Create Post Form</h1>
+      <a href="/" class="main-btn">Go back Home</a>
+    </header>
+    <form accept="/admin/create" method="post">
+      <div class="field">
+        <label for="title">Title</label>
+        <input type="text" name="title" required />
+      </div>
+      <div class="field">
+        <label for="photo">Image URL</label>
+        <input type="text" name="photo" required />
+      </div>
+      <div class="field">
+        <label for="description">Description</label>
+        <textarea type="text" name="description" rows="10" required></textarea>
+      </div>
+      <button type="submit">Add Post</button>
+    </form>
+  </div>
+</section>
+<%- include('./includes/foot.ejs') %>
