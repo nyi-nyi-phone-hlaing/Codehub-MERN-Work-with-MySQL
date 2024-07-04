@@ -13,4 +13,13 @@ router.get("/create", postControllers.renderAddPostPage);
 //? Post -> Create a new post
 router.post("/create", postControllers.createPost);
 
+//? Delete -> Delete post by id
+router.post("/delete/:id", postControllers.deletePost);
+
+//? Get -> Edit Post Page
+router.get("/edit/:id", postControllers.renderEditPage);
+
+//? Post -> Edit post by id
+router.post("/edit-post", postControllers.editPost);
+
 module.exports = router;

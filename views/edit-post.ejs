@@ -7,23 +7,30 @@
 <section class="addpost-section">
   <div class="form-ctn">
     <header>
-      <h1>Create Post Form</h1>
+      <h1>Edit Post Form</h1>
       <a href="/" class="main-btn">Go back Home</a>
     </header>
-    <form action="/admin/create" method="post">
+    <form action="/admin/edit-post" method="post">
+      <input type="text" name="id" value="<%= post.id %>" hidden required />
       <div class="field">
         <label for="title">Title</label>
-        <input type="text" name="title" required />
+        <input type="text" name="title" value="<%= post.title %>" required />
       </div>
       <div class="field">
         <label for="photo">Image URL</label>
-        <input type="text" name="photo" required />
+        <input
+          type="text"
+          name="photo"
+          value="<%= post.image_url %>"
+          required />
       </div>
       <div class="field">
         <label for="description">Description</label>
-        <textarea type="text" name="description" rows="10" required></textarea>
+        <textarea type="text" name="description" rows="10" required>
+          <%= post.description %>
+        </textarea>
       </div>
-      <button type="submit">Add Post</button>
+      <button type="submit">Edit Post</button>
     </form>
   </div>
 </section>

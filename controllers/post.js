@@ -1,9 +1,10 @@
 //? Post Array
+const { where } = require("sequelize");
 const Post = require("../models/post");
 
 //? Homepage Rendring
 exports.renderHomePage = (req, res) => {
-  Post.findAll()
+  Post.findAll({ order: [["createdAt", "DESC"]] })
     .then((rows) => {
       res.render("home", { title: "Home Page", postsArray: rows });
     })
@@ -38,4 +39,53 @@ exports.renderPostDetailPage = (req, res) => {
       res.render("details", { title: row.title, post: row });
     })
     .catch((err) => console.log(err));
+};
+
+exports.deletePost = (req, res) => {
+  const { id } = req.params;
+
+  Post.findByPk(id)
+    .then((post) => {
+      if (!post) {
+        console.log("Post not found");
+        return null;
+      }
+      return post.destroy();
+    })
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+exports.renderEditPage = (req, res) => {
+  const { id } = req.params;
+  Post.findByPk(id)
+    .then((post) => {
+      res.render("edit-post", { title: post.title, post });
+    })
+    .catch((err) => console.log(err));
+};
+
+exports.editPost = (req, res) => {
+  const { id, title, description, photo } = req.body;
+  Post.findByPk(id)
+    .then((post) => {
+      if (!post) {
+        console.log("Post not found");
+        return null;
+      }
+      post.title = title;
+      post.description = description;
+      post.image_url = photo;
+      return post.save();
+    })
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };

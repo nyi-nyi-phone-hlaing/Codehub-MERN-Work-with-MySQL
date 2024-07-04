@@ -12,6 +12,12 @@
     </header>
     <div class="content-ctn">
       <img src="<%= post.image_url %>" alt="<%= post.title %>" />
+      <div class="post-controls">
+        <form action="/admin/delete/<%= post.id %>" method="post">
+          <button class="main-btn">Delete</button>
+        </form>
+        <a href="/admin/edit/<%= post.id %>" class="main-btn">Edit</a>
+      </div>
       <p><%= post.description %></p>
     </div>
   </div>
