@@ -24,7 +24,8 @@ exports.renderAddPostPage = (req, res) => {
 //? Create post controller
 exports.createPost = (req, res) => {
   const { title, description, photo } = req.body;
-  Post.create({ title, description, image_url: photo })
+  req.user
+    .createPost({ title, description, image_url: photo })
     .then((_) => {
       console.log("Post Create Successfully!");
       res.redirect("/");
